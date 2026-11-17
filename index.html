@@ -1,1 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M-Bot dérive à gauche — Séquence réparabilité 3e</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#1c2430;--mute:#5b6675;--line:#dde2ea;--acc:#0f6fd1;--acc2:#e8f1fc;--ok:#1a7f4b;--warn:#b45309;--warnbg:#fff4e5;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12161c;--card:#1b222c;--ink:#e8ecf2;--mute:#9aa6b6;--line:#2c3644;--acc:#5aa7ff;--acc2:#1a2a40;--ok:#4cc58a;--warn:#f0a65a;--warnbg:#33281a}}
+:root[data-theme="dark"]{--bg:#12161c;--card:#1b222c;--ink:#e8ecf2;--mute:#9aa6b6;--line:#2c3644;--acc:#5aa7ff;--acc2:#1a2a40;--ok:#4cc58a;--warn:#f0a65a;--warnbg:#33281a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:20px 16px 48px}
+header{padding:28px 0 8px}
+.tag{display:inline-block;background:var(--acc2);color:var(--acc);font-weight:600;font-size:13px;padding:3px 10px;border-radius:99px}
+h1{font-size:clamp(26px,5vw,38px);margin:10px 0 6px;line-height:1.15}
+.lead{color:var(--mute);max-width:70ch}
+h2{margin:34px 0 12px;font-size:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.chain{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.chain span{background:var(--acc2);color:var(--acc);padding:4px 10px;border-radius:8px;font-size:14px;font-weight:600}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:12px 0;overflow:hidden}
+summary{cursor:pointer;padding:14px 18px;font-weight:700;list-style:none;display:flex;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary .n{background:var(--acc);color:#fff;border-radius:8px;min-width:34px;height:34px;display:grid;place-items:center;flex:none}
+summary small{display:block;font-weight:400;color:var(--mute)}
+summary::after{content:"⌄";margin-left:auto;color:var(--mute)}
+details[open] summary::after{content:"⌃"}
+.body{padding:2px 18px 18px;border-top:1px solid var(--line)}
+.meta{color:var(--mute);font-size:14px;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--acc2)}
+.scroll{overflow-x:auto}
+.note{background:var(--warnbg);border-left:4px solid var(--warn);padding:10px 14px;border-radius:8px;margin:12px 0;font-size:15px}
+ul,ol{padding-left:20px;margin:6px 0}
+a{color:var(--acc)}
+.fig{width:100%;max-width:520px;display:block;margin:8px auto}
+footer{color:var(--mute);font-size:14px;margin-top:36px}
+@media print{details{break-inside:avoid}details>*{display:block!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<span class="tag">Technologie · Cycle 4 · 3e</span>
+<h1>M-Bot dérive vers la gauche : comment le diagnostiquer et le réparer ?</h1>
+<p class="lead">Séquence sur la <b>réparabilité</b> : à partir d’une panne réelle et mesurable (le robot ne va pas droit), les élèves diagnostiquent, réparent, corrigent par la programmation, puis évaluent la réparabilité du robot avec les critères de l’indice officiel.</p>
+</header>
 
+<h2>1. Vue d’ensemble</h2>
+<div class="grid">
+<div class="card"><b>Problématique</b><br>Pourquoi M-Bot tourne-t-il toujours vers la gauche, et quelle solution (réparation, réglage, programme) est la plus durable ?</div>
+<div class="card"><b>Durée</b><br>5 séances de 55 min (comme vos séquences du site), en îlots de 3 à 4 élèves.</div>
+<div class="card"><b>Production finale</b><br>Dossier de diagnostic + robot qui roule droit (test sur 2 m) + fiche « indice de réparabilité » de M-Bot avec soutenance de 3 min.</div>
+</div>
+<div class="chain"><span>Observer</span><span>Mesurer</span><span>Diagnostiquer</span><span>Réparer</span><span>Programmer</span><span>Tester</span><span>Améliorer</span></div>
+
+<div class="card">
+<b>Compétences et connaissances visées (programme de technologie, cycle 4)</b>
+<ul>
+<li>Identifier un dysfonctionnement d’un objet technique et y remédier (repérer une pièce défectueuse, suivre une procédure de réparation).</li>
+<li>Fiabilité, durabilité, indice de réparabilité.</li>
+<li>Modifier un programme fourni pour répondre à un problème posé ; déclenchement d’une séquence d’instructions par un événement.</li>
+<li>Socle : D2 (coopérer, méthodes), D4 (démarche scientifique et technique), D3 (responsabilité, développement durable), D1 (oral).</li>
+</ul>
+</div>
+
+<h2>2. Hypothèses de panne à explorer</h2>
+<p class="meta">Dans une dérive à gauche, le moteur droit pousse plus que le gauche, ou le côté gauche freine. Les élèves classent les causes par famille (6M simplifié).</p>
+<div class="scroll"><table>
+<tr><th>Famille</th><th>Causes possibles</th><th>Test associé</th></tr>
+<tr><td>Mécanique</td><td>Roue gauche qui frotte ou voilée, pneu usé, vis trop serrée, axe tordu, roue folle (bille) bloquée ou encrassée, cheveux ou poussière autour de l’axe</td><td>Soulever le robot, tourner chaque roue à la main : comparer la résistance</td></tr>
+<tr><td>Électrique</td><td>Connecteur moteur gauche mal enfiché, fil usé, batterie faible, contact faible</td><td>Test de chaque moteur isolé ; mesure de la tension de la batterie</td></tr>
+<tr><td>Moteur</td><td>Deux moteurs d’usure ou de tolérances différentes (vitesses à vide différentes)</td><td>Même consigne aux deux moteurs, comparer la distance parcourue en 5 s</td></tr>
+<tr><td>Logiciel</td><td>Puissances différentes dans le programme, mauvais bloc, valeur non calibrée</td><td>Relire l’algorithme, tester avec une même puissance</td></tr>
+<tr><td>Milieu</td><td>Sol glissant ou en pente, tapis, revêtement différent à gauche et à droite</td><td>Répéter l’essai sur un autre sol</td></tr>
+</table></div>
+
+<h2>3. Déroulement</h2>
+
+<details open>
+<summary><span class="n">01</span><span>Constater la dérive<small>Lancement, hypothèses et mesure · 55 min</small></span></summary>
+<div class="body">
+<p class="meta"><b>Objectif :</b> transformer « il tourne à gauche » en un constat mesuré. <b>Modalité :</b> classe entière puis îlots.</p>
+<ol>
+<li><b>Accroche (10 min).</b> Chaque îlot lance M-Bot sur 2 m avec le programme « avancer ». Le robot dérive. Vidéo courte sur les pannes et le gaspillage d’objets réparables, puis question : « Jette-t-on un robot qui dérive ? »</li>
+<li><b>Mesure (20 min).</b> Ruban au sol et mètre : 3 essais, relever la déviation latérale à 2 m (en cm), calculer la moyenne. Premier tableau de résultats.</li>
+<li><b>Hypothèses (15 min).</b> Brainstorming individuel puis mise en commun ; classement par familles (tableau §2). Rédaction de la problématique.</li>
+<li><b>Contrat d’équipe (10 min).</b> Rôles : chef de projet, documentaliste, technicien, rédacteur. Signature du contrat.</li>
+</ol>
+<div class="note"><b>Trace écrite :</b> une panne se décrit par un constat mesuré (valeur, conditions), pas par une impression.</div>
+</div>
+</details>
+
+<details>
+<summary><span class="n">02</span><span>Diagnostiquer méthodiquement<small>Organigramme de recherche de panne · 55 min</small></span></summary>
+<div class="body">
+<p class="meta"><b>Objectif :</b> suivre une procédure de recherche de panne pour isoler la cause. <b>Modalité :</b> atelier, îlots.</p>
+<ol>
+<li><b>Découverte de l’organigramme de diagnostic (10 min).</b> Lecture collective : test → résultat → décision.</li>
+<li><b>Tests un par un (30 min).</b>
+<ul>
+<li>Test A : roues soulevées, tourner à la main (frottement ?).</li>
+<li>Test B : programme « moteur gauche seul » puis « moteur droit seul », même puissance, même durée ; comparer.</li>
+<li>Test C : mesurer la tension de la batterie ; essai avec batterie chargée.</li>
+<li>Test D : même programme sur un autre robot sain (comparaison).</li>
+<li>Test E : inspection visuelle (connecteurs, fils, roue folle, vis).</li>
+</ul></li>
+<li><b>Synthèse (15 min).</b> Compléter la fiche de diagnostic : test, résultat, conclusion. Désigner la cause la plus probable avec preuve chiffrée.</li>
+</ol>
+<div class="scroll"><table>
+<tr><th>Test</th><th>Résultat observé</th><th>Cause éliminée ou confirmée ?</th></tr>
+<tr><td>A. Frottement des roues</td><td></td><td></td></tr>
+<tr><td>B. Moteurs seuls</td><td></td><td></td></tr>
+<tr><td>C. Batterie</td><td></td><td></td></tr>
+</table></div>
+<p class="meta"><b>Différenciation :</b> organigramme à compléter (soutien) ou à construire (approfondissement).</p>
+</div>
+</details>
+
+<details>
+<summary><span class="n">03</span><span>Réparer en suivant une procédure<small>Démontage, remplacement, remontage · 55 min</small></span></summary>
+<div class="body">
+<p class="meta"><b>Objectif :</b> réaliser une réparation avec une fiche procédure et observer les freins à la réparabilité. <b>Modalité :</b> atelier, îlots.</p>
+<ol>
+<li><b>Choix de la réparation (10 min).</b> Selon la cause trouvée : nettoyer/ré-axer la roue, resserrer, rebrancher un connecteur, remplacer le moteur ou la roue, recharger la batterie.</li>
+<li><b>Réparation guidée (30 min).</b> Le technicien suit la fiche procédure (outils, sécurité, ordre des opérations) ; le documentaliste chronomètre et note chaque étape.</li>
+<li><b>Observer la réparabilité (10 min).</b> Chaque îlot relève : nombre de vis, types de vis, outils nécessaires, pièces collées ou clipsées, temps total, accès aux pièces.</li>
+<li><b>Bilan (5 min).</b> Retest sur 2 m : la dérive a-t-elle diminué ?</li>
+</ol>
+<p class="meta"><b>Option fabrication :</b> si une pièce manque (support, capot), la modéliser dans Tinkercad et l’imprimer en 3D, comme dans votre séquence « Porte-courrier augmenté ».</p>
+<div class="note"><b>Sécurité :</b> robot éteint, batterie débranchée avant tout démontage.</div>
+</div>
+</details>
+
+<details>
+<summary><span class="n">04</span><span>Corriger aussi par le programme<small>Étalonnage et compensation · 55 min</small></span></summary>
+<div class="body">
+<p class="meta"><b>Objectif :</b> comprendre qu’une dérive résiduelle peut se compenser logiciellement, et comparer les solutions. <b>Modalité :</b> salle informatique ou atelier, mBlock.</p>
+<ol>
+<li><b>Étalonner (20 min).</b> Tester des couples de puissances (ex. gauche 55 / droite 50, puis 58 / 50…). Relever la déviation à 2 m dans un tableau et un graphique (tableur), comme dans la séquence « Calibrer le capteur ».</li>
+<li><b>Programmer (15 min).</b> Écrire la version corrigée : algorithme en langage naturel, logigramme, puis blocs. Stocker les valeurs de correction dans des variables nommées.</li>
+<li><b>Comparer (20 min).</b> Matrice de décision à partir de la fiche de séance 3 :</li>
+</ol>
+<div class="scroll"><table>
+<tr><th>Solution</th><th>Coût</th><th>Durée de la réparation</th><th>Durabilité</th><th>Impact environnemental</th></tr>
+<tr><td>Réparer la pièce</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Compenser par le programme</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Remplacer le robot</td><td></td><td></td><td></td><td></td></tr>
+</table></div>
+<div class="note"><b>Point clé :</b> compenser par le programme masque la cause : si la roue frotte, elle va s’user. Mieux vaut réparer d’abord, régler ensuite.</div>
+</div>
+</details>
+
+<details>
+<summary><span class="n">05</span><span>Évaluer la réparabilité de M-Bot<small>Indice de réparabilité, esprit critique et soutenance · 55 min</small></span></summary>
+<div class="body">
+<p class="meta"><b>Objectif :</b> utiliser les critères de l’indice de réparabilité pour noter M-Bot et en discuter la fiabilité. <b>Modalité :</b> îlots puis classe entière.</p>
+<ol>
+<li><b>Critères de l’indice (10 min).</b> Rappel : documentation disponible, facilité de démontage (outils, fixations), disponibilité des pièces détachées, prix des pièces, critère propre à la catégorie de produit.</li>
+<li><b>Notation de M-Bot (20 min).</b> Chaque îlot attribue une note argumentée à chaque critère à partir de ses relevés de séance 3, puis propose une note globale sur 10 et un logo.</li>
+<li><b>Regard critique – EMI (10 min).</b> Document : enquête de Que Choisir. L’indice est calculé par les fabricants eux-mêmes. Grille : Qui calcule ? Avec quelle méthode ? Quels intérêts ? Fiabilité de la source ?</li>
+<li><b>Soutenance (15 min).</b> 3 min par îlot : constat, cause, réparation, note de réparabilité et une amélioration de conception proposée (vis standard, capot clipsé, notice de démontage…).</li>
+</ol>
+<div class="note"><b>Trace écrite :</b> la réparabilité se conçoit dès la conception : accès, standardisation, pièces disponibles, notice. Réparer prolonge la durée de vie et réduit les déchets.</div>
+</div>
+</details>
+
+<h2>4. Évaluation par compétences</h2>
+<div class="scroll"><table>
+<tr><th>Compétence</th><th>Insuffisante</th><th>Fragile</th><th>Satisfaisante</th><th>Très bonne</th></tr>
+<tr><td><b>D4 — Diagnostiquer</b></td><td>Teste au hasard, sans relevé</td><td>Quelques tests, conclusion peu justifiée</td><td>Suit la procédure, conclut avec des mesures</td><td>Isole la cause, croise plusieurs tests, propose une vérification</td></tr>
+<tr><td><b>D4 — Réparer et programmer</b></td><td>Réparation non aboutie</td><td>Réparation partielle, programme à corriger</td><td>Robot qui roule droit (&lt; 5 cm sur 2 m)</td><td>Réparation + réglage justifiés, variables claires</td></tr>
+<tr><td><b>D2 — Coopérer</b></td><td>Ne tient pas son rôle</td><td>A besoin d’être relancé</td><td>Tient son rôle et les délais</td><td>Anticipe, aide l’équipe</td></tr>
+<tr><td><b>D2/D5 — Esprit critique</b></td><td>Accepte l’indice sans le questionner</td><td>Repère un biais isolé</td><td>Identifie l’auteur et les limites de l’indice</td><td>Argumente avec plusieurs sources</td></tr>
+<tr><td><b>D3 — Responsabilité</b></td><td>Ne relie pas panne et déchets</td><td>Cite un enjeu sans action</td><td>Compare réparer et remplacer</td><td>Propose une amélioration de conception</td></tr>
+<tr><td><b>D1 — Oral</b></td><td>Propos confus</td><td>Compréhensible, peu structuré</td><td>Clair et structuré</td><td>Convaincant, vocabulaire précis</td></tr>
+</table></div>
+
+<h2>5. Ressources académiques mobilisées</h2>
+<div class="card">
+<ul>
+<li><b>Académie de Dijon (Éduscol STI)</b> : « Programmer et réparer un robot suiveur de ligne » — trois séances, diagnostic par procédure, réparation mécanique et électronique, nouvelles pièces par prototypage.</li>
+<li><b>Éduscol STI</b> : « Les voitures autonomes » avec le robot mBot — exploration, programmation et dépannage ; pièce défectueuse, protocole de réparation, indice de réparabilité.</li>
+<li><b>Éduscol STI</b> : « Atelier de la seconde chance des objets » — organigrammes d’aide au diagnostic de panne, vidéo d’amorce sur l’indice de réparabilité.</li>
+<li><b>Académie de Bordeaux</b> : ressources robotique, dont les pages mBot V1 et V2, et trames de séquence cycle 4 en 3e.</li>
+<li><b>Académie de Versailles</b> : guide d’équipement, qui présente la réparabilité comme une démarche d’atelier (démontage, réparation, expérimentation).</li>
+<li><b>Que Choisir</b> : enquête sur la fiabilité de l’indice de réparabilité (support EMI).</li>
+<li>Cadre commun de vos documents : contrat d’équipe, grille EMI, rôles en îlots, grille par compétences du socle.</li>
+</ul>
+<p class="meta">Les séquences académiques citées ciblent la 5e : elles sont adaptées ici au niveau 3e (mesure, étalonnage, matrice de décision, esprit critique). Vérifiez les liens et fichiers sur les portails avant utilisation.</p>
+</div>
+
+<footer>Séquence proposée pour la classe de 3e, dans l’esprit des séquences de <a href="https://xseorkly.github.io/techno-3e/">Technologie 3e</a>.</footer>
+</div>
+</body>
+</html>
